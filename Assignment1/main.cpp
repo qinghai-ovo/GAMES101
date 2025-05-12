@@ -43,11 +43,11 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
 //TODO：需要验证方法
 Eigen::Matrix4f get_rotation(Vector3f axis, float angle){
     Eigen::Matrix4f rotation = Eigen::Matrix4f::Identity();
-    Eigen::Matrix4f n ; //X乘矩阵
+    Eigen::Matrix3f n ; //X乘矩阵
     float angle_rad = angle * M_PI / 180.f; //trans angle to rad
     
-    n << 0, -axis(2), axis(1),
-         axis(2), 0, -axis(0),
+    n << 0, -axis(2), axis(1), 
+         axis(2), 0, -axis(0), 
          -axis(1), axis(0), 0;
 
     //change rotate matix by Rodrigues` Rotation Formula
