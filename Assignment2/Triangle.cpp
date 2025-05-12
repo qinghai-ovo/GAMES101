@@ -43,6 +43,9 @@ void Triangle::setTexCoord(int ind, float s, float t) {
     tex_coords[ind] = Vector2f(s,t);
 }
 
+/*
+*Trans the 3 points of triangle to the Hormoginous vector
+*/
 std::array<Vector4f, 3> Triangle::toVector4() const
 {
     std::array<Eigen::Vector4f, 3> res;
