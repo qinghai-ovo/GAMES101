@@ -26,7 +26,6 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
 {
     Eigen::Matrix4f model = Eigen::Matrix4f::Identity();
     
-    // TODO: Implement this function
     // Create the model matrix for rotating the triangle around the Z axis.
     Eigen::Matrix4f translate;
     float theta = rotation_angle * M_PI / 180.f;  //将传入的转换角度为弧度制
@@ -43,11 +42,10 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
 
 Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float zNear, float zFar)
 {
-    // TODO: Copy-paste your implementation from the previous assignment.
-    Eigen::Matrix4f projection;
+    Eigen::Matrix4f projection = Eigen::Matrix4f::Identity();;
     float theta = (eye_fov / 2.0f) * M_PI / 180.f;
 
-
+    //solution for upside dwon problem
     float t = zNear * tan(theta);
     float b = -t;
     float r = t * aspect_ratio;
@@ -55,7 +53,6 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
     float n = -zNear;
     float f = -zFar;
      
-    // TODO: Implement this function
     // Create the projection matrix for the given parameters.
     Eigen::Matrix4f persptoortho;
     Eigen::Matrix4f orthoTrans;
